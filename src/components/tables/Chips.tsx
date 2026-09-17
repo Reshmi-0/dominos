@@ -1,5 +1,3 @@
-import React from 'react';
-
 type ChipType = 'success' | 'warning' | 'danger' | 'info' | 'default';
 
 interface BaseChipProps {

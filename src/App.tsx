@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { PageShell } from './components/layout/PageShell';
 import { Overview } from './pages/Overview';

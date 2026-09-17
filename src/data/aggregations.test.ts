@@ -9,7 +9,7 @@ import {
   getCategoryBreakdown,
   getOrderTypeBreakdown
 } from './aggregations';
-import { OrderLineItem } from './types';
+import type { OrderLineItem } from './types';
 
 const mockOrders: OrderLineItem[] = [
   {

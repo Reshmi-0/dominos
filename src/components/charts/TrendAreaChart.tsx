@@ -69,7 +69,12 @@ export function TrendAreaChart({
               />
               <Tooltip 
                 contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
-                formatter={(value: number) => [formatYAxis(value), 'Value']}
+                formatter={(value: any) => {
+                  if (formatYAxis && typeof value === 'number') {
+                    return [formatYAxis(value), 'Value'];
+                  }
+                  return [String(value), 'Value'];
+                }}
                 labelFormatter={(label) => {
                   const d = new Date(label as string);
                   return isNaN(d.getTime()) ? String(label) : d.toLocaleDateString();

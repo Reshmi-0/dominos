@@ -1,4 +1,3 @@
-import React from 'react';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface DonutData {
@@ -51,7 +50,7 @@ export function DonutChart({
                 </Pie>
                 <Tooltip 
                   contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
-                  formatter={(value: number) => [value, '']}
+                  formatter={(value: any) => [typeof value === 'number' && value >= 1000 ? `₹${(value / 1000).toFixed(1)}K` : `₹${value}`, 'Revenue']}
                 />
               </PieChart>
             </ResponsiveContainer>
