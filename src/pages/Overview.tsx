@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IndianRupee, Slice, Users, Clock } from 'lucide-react';
 import { KpiCard } from '../components/kpi/KpiCard';
@@ -125,11 +125,16 @@ export function Overview() {
     { header: 'Date & Time', accessorKey: (row) => row.parsed_datetime.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true }), align: 'right', className: 'text-text-secondary whitespace-nowrap' },
   ];
 
+  const hour = new Date().getHours();
+  let greeting = 'Good evening';
+  if (hour < 12) greeting = 'Good morning';
+  else if (hour < 17) greeting = 'Good afternoon';
+
   return (
     <div className="flex flex-col gap-6">
       <div className="mb-2">
-        <h1 className="text-[24px] font-bold text-text-primary">Welcome, Reshmi!</h1>
-        <p className="text-[14px] text-text-secondary mt-1">Here's how your Domino's store is performing today.</p>
+        <h1 className="text-[28px] font-bold text-white/90 tracking-tight">{greeting}, Reshmi 👋</h1>
+        <p className="text-[15px] text-white/70 mt-1 font-medium">Here's how your Domino's store is performing today.</p>
       </div>
 
       {/* KPI Row */}

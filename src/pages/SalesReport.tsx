@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IndianRupee, Slice, Percent, TrendingUp } from 'lucide-react';
 import { KpiCard } from '../components/kpi/KpiCard';
 import { TrendAreaChart } from '../components/charts/TrendAreaChart';
@@ -81,17 +81,6 @@ export function SalesReport() {
 
   // Chart Data
   const revenueSeries = getDailySeries(currentOrders, 'revenue');
-  const ordersSeries = getDailySeries(currentOrders, 'orders');
-  
-  // Combine for grouped bar chart
-  const groupedData = revenueSeries.map(r => {
-    const ordersItem = ordersSeries.find(o => o.day === r.day);
-    return {
-      day: r.day,
-      revenue: r.value,
-      orders: (ordersItem?.value || 0) * 200 // scaling orders up visually to compare with revenue in dual bar if using one axis, but typically dual axis is better. Since grouped bar in recharts uses one axis, we'll just plot revenue and average order value.
-    };
-  });
   
   // Re-map grouped data to show Total Sales vs Orders Revenue (mock metric)
   const salesSummaryData = revenueSeries.map(r => ({

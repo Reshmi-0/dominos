@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Store, User, Clock, Bell, CreditCard, Sliders } from 'lucide-react';
 import { SettingsCard, FormField, ToggleRow, CheckboxRow } from '../components/settings/SettingsComponents';
 import { api } from '../data/mockDashboardApi';

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ClipboardList, CircleCheck, Clock, CircleX } from 'lucide-react';
 import { KpiCard } from '../components/kpi/KpiCard';
 import { TrendAreaChart } from '../components/charts/TrendAreaChart';
@@ -9,7 +9,6 @@ import { StatusChip, CategoryChip } from '../components/tables/Chips';
 import { api } from '../data/mockDashboardApi';
 import type { OrderLineItem } from '../data/types';
 import { 
-  getTotalOrders, 
   getDailySeries, 
   getOrderTypeBreakdown,
   getWeekOverWeekDelta
